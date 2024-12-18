@@ -22,8 +22,7 @@ async function postData() {
                         "role": "user",
                         "content": `Write an optimized JavaScript code for this problem statement: ${message}`,
                     }
-                ],
-                "maxTokens": 150, // Correct property casing
+                ]
             }),
         });
 
