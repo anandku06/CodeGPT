@@ -14,3 +14,8 @@
     width: 80%;
     display: block;
 }
+
+.dark{
+    background-color: #1a1a1a;
+    color: #fff;
+}
