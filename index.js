@@ -12,11 +12,19 @@ async function postData() {
             "Authorization" : `Bearer ${apiKey}`
         },
         body : JSON.stringify({
-            "model" : "gpt-3.5.turbo",
-            "messages" : {
+            "model" : "gpt-4o-mini",
+            "messages" : [{
+                "role" : "system",
+                "content" : "You are a helpful assistant"
+            },
+            {
                 "role" : "user",
                 "content" : `Write an optimised JavaScript code for this problem statement ${message}`
-            }
+            }],
+            "max_tokens" : 150
         })
+    }).then(res => res.json())
+    .then(data => {
+        console.log(data)
     })
 }
