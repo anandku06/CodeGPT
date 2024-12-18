@@ -1,30 +1,39 @@
-const apiKey = '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'
+const apiKey = 'AIzaSyCtyz0ck_B0_5TlwxFBMvfDN7ev35zAGJY';
 
-const apiURL = 'https://api.openai.com/v1/chat/completions'
+const apiURL = 'https://generativelanguage.googleapis.com/v1beta2/models/gemini-1.5-flash:generateMessage';
 
 async function postData() {
-    const message = document.querySelector('#message').value
+    const message = document.querySelector('#message').value;
 
-    fetch(apiURL, {
-        method : 'POST',
-        headers : {
-            'Content-Type' : 'application/json',
-            "Authorization" : `Bearer ${apiKey}`
-        },
-        body : JSON.stringify({
-            "model" : "gpt-4o-mini",
-            "messages" : [{
-                "role" : "system",
-                "content" : "You are a helpful assistant"
+    try {
+        const response = await fetch(apiURL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${apiKey}`,
             },
-            {
-                "role" : "user",
-                "content" : `Write an optimised JavaScript code for this problem statement ${message}`
-            }],
-            "max_tokens" : 150
-        })
-    }).then(res => res.json())
-    .then(data => {
-        console.log(data)
-    })
+            body: JSON.stringify({
+                "messages": [
+                    {
+                        "role": "system",
+                        "content": "You are a helpful assistant",
+                    },
+                    {
+                        "role": "user",
+                        "content": `Write an optimized JavaScript code for this problem statement: ${message}`,
+                    }
+                ],
+                "maxTokens": 150, // Correct property casing
+            }),
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log('Generated Response:', data);
+    } catch (error) {
+        console.error(error);
+    }
 }
