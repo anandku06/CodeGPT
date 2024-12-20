@@ -1,0 +1,11 @@
+{
+  "name": "codegpt",
+  "version": "1.0.0",
+  "description": "**CodeGPT** is a lightweight, browser-based tool that uses your OpenAI API key to suggest the most optimized JavaScript solutions for your problem statements. This simple and intuitive tool helps developers save time and write efficient code.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
