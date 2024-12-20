@@ -40,7 +40,7 @@
 async function postData() {
     const {GoogleGenerativeAI} = require("@google/generative-ai")
 
-    const genAI = new GoogleGenerativeAI('')
+    const genAI = new GoogleGenerativeAI('AIzaSyDeaKiCuFjcN5-fOyfjY0hB-bTDaFNqyZw')
     const model = genAI.getGenerativeModel({model : 'gemini-1.5-flash'})
 
     const prompt = document.getElementById('message').value
