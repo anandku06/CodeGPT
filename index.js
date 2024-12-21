@@ -44,11 +44,11 @@ async function postData() {
         const genAI = new GoogleGenerativeAI('AIzaSyDeaKiCuFjcN5-fOyfjY0hB-bTDaFNqyZw')
         const model = genAI.getGenerativeModel({model : 'gemini-1.5-flash'})
 
-        const prompt = document.getElementById('message').value
+        const prompt = 'Write a story for a kid'
 
         const result = await model.generateContent(prompt)
 
-        console.log(result)
+        console.log(result.response.text())
     }
     catch(error){
         console.log(error)
