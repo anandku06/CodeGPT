@@ -19,3 +19,14 @@
     background-color: #1a1a1a;
     color: #fff;
 }
+
+#generate{
+    cursor: pointer;
+    width: 5rem;
+    height: 2rem;
+    text-align: center;
+    font: 1em sans-serif;
+    background-color: #fff;
+    color: #1a1a1a;
+
+}
