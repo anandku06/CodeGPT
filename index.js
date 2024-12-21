@@ -49,3 +49,5 @@ async function postData() {
 
     console.log(result)
 }
+
+document.querySelector('button').addEventListener('click', postData)
