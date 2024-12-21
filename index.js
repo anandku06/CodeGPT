@@ -1,9 +1,10 @@
-// const apiKey
+// const apiKey = 'AIzaSyDeaKiCuFjcN5-fOyfjY0hB-bTDaFNqyZw'
 
-// const apiURL = 'https://generativelanguage.googleapis.com/v1beta2/models/gemini-1.5-flash:generateMessage';
+// const apiURL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
 
 // async function postData() {
 //     const message = document.querySelector('#message').value;
+//     // const message = "fibonacci sequence";
 
 //     try {
 //         const response = await fetch(apiURL, {
@@ -20,7 +21,7 @@
 //                     },
 //                     {
 //                         "role": "user",
-//                         "content": `Write an optimized JavaScript code for this problem statement: ${message}`,
+//                         "content": `Write an optimized JavaScript code for this problem statement: ${message.trim()}`,
 //                     }
 //                 ]
 //             }),
@@ -38,21 +39,27 @@
 // }
 import { GoogleGenerativeAI } from "@google/generative-ai"
 
-
+// const {GoogleGenerativeAI} = require("@google/generative-ai")
 async function postData() {
     try{
         const genAI = new GoogleGenerativeAI('AIzaSyDeaKiCuFjcN5-fOyfjY0hB-bTDaFNqyZw')
         const model = genAI.getGenerativeModel({model : 'gemini-1.5-flash'})
 
-        const prompt = 'Write a story for a kid'
+        const prompt = 'Give me a javascript code for fibonacci sequence'
 
         const result = await model.generateContent(prompt)
 
         console.log(result.response.text())
+        // const card = document.createElement('pre')
+        // card.innerHTML = result.response.text()
+
+        // document.querySelector('#chat-area').appendChild(card)
     }
     catch(error){
         console.log(error)
     }
 }
 
-document.querySelector('button').addEventListener('click', postData)
+// document.querySelector('button').addEventListener('click', postData)
+
+postData()
