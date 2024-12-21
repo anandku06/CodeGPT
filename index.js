@@ -40,14 +40,19 @@ import { GoogleGenerativeAI } from "@google/generative-ai"
 
 
 async function postData() {
-    const genAI = new GoogleGenerativeAI('AIzaSyDeaKiCuFjcN5-fOyfjY0hB-bTDaFNqyZw')
-    const model = genAI.getGenerativeModel({model : 'gemini-1.5-flash'})
+    try{
+        const genAI = new GoogleGenerativeAI('AIzaSyDeaKiCuFjcN5-fOyfjY0hB-bTDaFNqyZw')
+        const model = genAI.getGenerativeModel({model : 'gemini-1.5-flash'})
 
-    const prompt = document.getElementById('message').value
+        const prompt = document.getElementById('message').value
 
-    const result = await model.generateContent(prompt)
+        const result = await model.generateContent(prompt)
 
-    console.log(result)
+        console.log(result)
+    }
+    catch(error){
+        console.log(error)
+    }
 }
 
 document.querySelector('button').addEventListener('click', postData)
