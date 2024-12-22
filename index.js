@@ -42,7 +42,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai"
 // const {GoogleGenerativeAI} = require("@google/generative-ai")
 async function postData() {
     try{
-        const genAI = new GoogleGenerativeAI('AIzaSyDeaKiCuFjcN5-fOyfjY0hB-bTDaFNqyZw')
+        const genAI = new GoogleGenerativeAI() // your API key here
         const model = genAI.getGenerativeModel({model : 'gemini-1.5-flash'})
 
         const prompt = 'Give me a javascript code for fibonacci sequence'
