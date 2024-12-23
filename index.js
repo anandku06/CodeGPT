@@ -45,21 +45,27 @@ async function postData() {
         const genAI = new GoogleGenerativeAI() // your API key here
         const model = genAI.getGenerativeModel({model : 'gemini-1.5-flash'})
 
-        const prompt = 'Give me a javascript code for fibonacci sequence'
+        const message = document.querySelector('#message')
+        const prompt = message.value.trim()
+
+        if(!prompt){
+            alert("Prompt is empty!!")
+            return
+        }
 
         const result = await model.generateContent(prompt)
 
         console.log(result.response.text())
-        // const card = document.createElement('pre')
-        // card.innerHTML = result.response.text()
+        const card = document.createElement('pre')
+        card.innerHTML = result.response.text()
 
-        // document.querySelector('#chat-area').appendChild(card)
+        document.querySelector('#chat-area').appendChild(card)
     }
     catch(error){
-        console.log(error)
+        console.log(`Error: ${error}`)
     }
 }
 
-// document.querySelector('button').addEventListener('click', postData)
+document.querySelector('button').addEventListener('click', postData)
 
-postData()
+// postData()
