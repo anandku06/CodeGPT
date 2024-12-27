@@ -1,4 +1,4 @@
-// const apiKey = 'AIzaSyDeaKiCuFjcN5-fOyfjY0hB-bTDaFNqyZw'
+// const apiKey = ''
 
 // const apiURL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
 
